@@ -67,7 +67,7 @@ public class AppointmentService {
                 appointmentState.completed(appointment);;
                 break;
             default:
-                System.out.println("No matching Action");
+                System.out.println("No matching Action...");
                 throw new IllegalArgumentException("Unknown action");
         }
 
