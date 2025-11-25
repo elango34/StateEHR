@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class AppointmentStatusRequest {
     private int id;
-    private String status;
+    private String action;
 }

@@ -42,13 +42,33 @@ public class AppointmentService {
         // get the appointment by using id
         Appointment appointment = repo.findById(request.getId());
 
-        System.out.println(appointment);
+        System.out.println("===========");
+        System.out.println(appointment.getStatus());
 
         // get the correct 
         // now give the appointment to change the status
-        AppointmentState appointmentState = this.appointmentState.get(request.getStatus());
+        AppointmentState appointmentState = this.appointmentState.get(appointment.getStatus().toUpperCase());
+        
+        System.out.println("+++++++++++++++");
+        System.out.println(appointmentState);
+        System.out.println(request.getAction());
 
-        appointmentState.confirmed(appointment);
+        switch(request.getAction()) {
+            case "CONFIRMED":
+                appointmentState.confirmed(appointment);
+                break;
+            case "CANCELLED":
+                appointmentState.cancelled(appointment);
+                break;
+            case "CHECKED-IN":
+                appointmentState.checkedIn(appointment);
+                break;
+            case "COMPLETED":
+                appointmentState.completed(appointment);;
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown action");
+        }
 
         return appointment;
 

@@ -9,6 +9,7 @@ import com.EHR.state.state.AppointmentState;
 public class AppointmentConfirmed implements AppointmentState {
     public void confirmed(Appointment appointment) {
         System.out.println("==== Already Confirmed ====");
+        appointment.setStatus("Confirmed");
     }
 
     public void cancelled(Appointment appointment) {
@@ -23,6 +24,6 @@ public class AppointmentConfirmed implements AppointmentState {
 
     public void checkedIn(Appointment appointment) {
         System.out.println("==== Confirming ====");
-        appointment.setStatus("CheckedIn");
+        appointment.setStatus("Checked-In");
     }
 }

@@ -22,6 +22,6 @@ public class AppointmentCancelled implements AppointmentState{
 
     public void checkedIn(Appointment appointment) {
         System.out.println("==== Checking In ====");
-        appointment.setStatus("CheckedIn");
+        appointment.setStatus("Checked-In");
     }
 }
